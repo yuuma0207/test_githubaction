@@ -30,7 +30,7 @@ jobs:
         if-no-files-found: error
 
     - name: Broken Link Check
-      if: ${{ github.ref == 'refs/heads/master'}}
+      if: ${{ github.ref == 'refs/heads/main'}}
       uses: technote-space/broken-link-checker-action@v1
       with:
         TARGET: file://${{ github.workspace }}/ford_site/index.html
@@ -39,7 +39,7 @@ jobs:
 
     - name: Deploy API Documentation
       uses: JamesIves/github-pages-deploy-action@4.1.0
-      if: ${{ github.event_name == 'push'  &&  github.ref == 'refs/heads/master' }}
+      if: ${{ github.event_name == 'push'  &&  github.ref == 'refs/heads/main' }}
       with:
         branch: gh-pages
         folder: doc/ford_site
